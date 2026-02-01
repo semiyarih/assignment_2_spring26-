@@ -1,0 +1,131 @@
+---
+title: "Introduction to Quarto"
+format: html
+urlcolor: "blue"
+---
+
+##  What Is Quarto?
+
+Quarto is a modern publishing system that lets you combine **text**, **code**, and **output** in one document.\
+You can create reports, slides, websites, books, and more — all from RStudio.
+
+This tutorial walks you through the basics so you can start using Quarto right away.
+
+------------------------------------------------------------------------
+
+##  1. Creating a New Quarto Document
+
+1.  Open **RStudio**
+2.  Go to: **File > New File > Quarto Document**
+3.  Choose:
+    -   **Title**
+    -   **Author**
+    -   **Format** 
+4.  Click **Create**
+
+You’ll see a new `.qmd` file with a header (YAML) and some starter content.
+
+--- 
+
+## 2. Understanding the YAML Header 
+
+The YAML block at the top controls the document settings: 
+
+```yaml 
+--- 
+title: "My First Quarto Document" 
+author: "Student Name" 
+format: html 
+
+---
+```
+## 3. Writing Text
+
+Quarto uses Markdown, which is simple and intuitive.
+
+Examples:
+
+
+# Heading 1
+## Heading 2
+### Heading 3
+
+This is **bold**, *italic*, and `inline code`.
+
+- Bullet list item
+- Another itm
+
+1. Numbered item
+2. Another item
+
+## 4. Adding R Code Chunks
+
+Use triple backticks with {r}:
+
+```{r}
+# A simple calculation
+x <- 1:10
+mean(x)
+```
+
+Or a plot
+
+```{r}
+plot(cars)
+
+```
+When you render the document, the code runs and the output appears below it.
+
+## 5. Chunk Options
+Control how code behaves:
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+summary(cars)
+
+```
+Common options:
+
+- `echo: false`  hide code
+
+- `message: false`  hide messages
+
+- `warning: false`  hide warnings
+
+- `eval: false`   This option will not excute the chunk of code
+
+- `fig-width` / `fig-height`  control plot size
+
+
+
+ ## 6. Adding Visuals
+Insert images:
+
+![A lovely flag](flag.jpg)
+
+
+## 8. Using Citations (Optional)
+Add a bibliography file to `yaml`:
+
+
+```yaml 
+---
+title: "Document with Citations"
+format: html
+bibliography: references.bib
+---
+```
+According to @jim, this method works well.
+
+
+## 9. Rendering the Document
+
+Click the Render button at the top of RStudio.
+
+
+
+This creates an HTML (or PDF/Word) output file.
+
