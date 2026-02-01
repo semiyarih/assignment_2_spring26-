@@ -1,0 +1,128 @@
+---
+title: "assignment_2"
+format: html
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo       = TRUE, 
+                      fig.height = 3, 
+                      fig.width  = 6,
+                      fig.align  = "center")
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r}
+#| message: false
+library(tidyverse)
+
+library(lubridate)
+```
+
+
+# Question 1:
+
+Write a function `pos_na()` that takes two vectors of equal length and returns the positions where **both** vectors contain `NA`.  
+If the vectors do **not** have the same length, the function should return the message:
+
+> `"The vectors are not the same length."`
+
+Use the following pairs of vectors to test your function:
+
+1. `c(1, NA, 2)` and `c(NA, NA)`
+2. `c(NA, NA, 2)` and `c(NA, NA, 2)`
+3. `c(NA, 5, NA)` and `c(NA, NA, NA)`
+4. `c(NA, NA, NA, 2, NA, 4, NA)` and `c(NA, NA, 2, 4, 4, NA, NA)`
+5. `c(1, NA, NA, 2, NA, 4, NA)` and `c(NA, -5, 2, 4, 4, NA, 11)`
+
+
+
+
+Here’s a polished, professional way to label those two parts of the assignment. It reads cleanly and sets expectations without adding extra wording.
+
+---
+
+### (1i) Using an `if` statement
+
+Write a version of `pos_na()` that checks whether the two input vectors have the same length using an `if` statement.  
+
+- If they do, return the positions where both vectors contain `NA`.  
+
+- If they do not, return the message:
+
+> `"The vectors are not the same length."`
+
+
+
+### (1ii) Without using an `if` statement
+
+Write a second version of `pos_na()` that performs the same task **without** using an `if` statement.  
+
+- You may use any other valid R mechanism (e.g., `stop()`, `stopifnot()`, or logical short‑circuiting) to handle the case where the vectors differ in length.
+
+``
+  
+# Question 2
+ Load the `wmata_ridership` data frame into R from <https://dcgerard.github.io/stat_412_612/data/wmata_ridership.csv>. For each month, calculate the proportion of rides made on a given day of the month. Then make box plots of the proport
+
+# Question 3:
+Write R code that extracts the elements "Bears", "Dolphins", and "Bengals" from the vector `V` shown below, and display the result.
+```{r}
+V <- c("Bears", "Lions", "Dolphins", "Eagles", "Bengals")
+```
+
+
+## (3i) Subsetting by index
+
+## (3ii) Subsetting using a `for` loop
+
+
+## (3iii)Returning all values in a single vector (one line of code)
+
+  
+### (a) Using positive indices
+
+### (b) Using negative indices
+
+### (c) Using logical indexing
+
+### (d) Attempting to subset by names
+
+# Question 4:
+
+You are given a character vector containing messy employee records. Each entry includes:
+
+- an employee name (string),
+- a hire date in inconsistent formats,
+- and a department code that should be treated as a factor.
+
+```{r}
+records <- c(
+  "Steve McQueen | 2020-01-15 | HR",
+  "B. Smith | 15/02/2021 | FIN",
+  "Carlos M | March 3, 2019 | IT",
+  "D. Lee | 2018/07/30 | HR",
+  "Alain Delon | 04-12-2020 | MKT"
+)
+records
+```
+
+1. **Parse each record** into three separate variables:  
+   - `name`  
+   - `hire_date`  
+   - `dept
+   `
+
+
+2. **Convert `hire_date` into a proper `Date` object**, correctly handling all of the different date formats.
+
+3. **Convert `dept` into an ordered factor** with the levels:  
+   `HR`, `FIN`, `IT`, `MKT`.
+
+4. **Construct a clean data frame** containing the parsed and converted variables.
+
+5. **Add a new variable** called `years_worked` that reports the number of full years each employee has worked as of today.
+
+6. **Return the final cleaned data frame.**
+
+
